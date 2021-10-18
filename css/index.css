@@ -141,6 +141,9 @@ body {
 .Total {
   margin-bottom: 100px;
 }
+.bill span, .select span, .number span {
+  color: var(--Very--dark--cyan);
+}
 @media only screen and (max-width: 960px) {
   body {
     margin: 20px auto;
