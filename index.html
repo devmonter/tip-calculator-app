@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>Frontend Mentor | Tip calculator app</title>
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="cord">
+    <div class="cord-left">
+      <div class="bill">
+        <span>Bill</span>
+        <div class="input-bill">
+          <img src="./images/icon-dollar.svg" alt="">
+          <input name="bill" type="text" id="input-bill-fill">
+        </div>
+      </div>
+      <div class="select">
+        <span>Select Tip %</span>
+        <div class="input-button">
+          <input class="text" id="5%" type="button" value="5%">
+          <input class="text" id="10%" type="button" value="10%">
+          <input class="text" id="15%" type="button" value="15%">
+          <input class="text" id="25%" type="button" value="25%">
+          <input class="text" id="50%" type="button" value="50%">
+          <input name="custom" class="text-input" type="text" class="custom" placeholder="custom">
+        </div>
+      </div>
+      <div class="number">
+        <span>Number of People</span>
+        <div class="input-number">
+          <img src="./images/icon-person.svg" alt="">
+          <input name="number" type="text" id="input-number-fill">
+        </div>
+      </div>
+    </div>
+
+    <div class="cord-right">
+      <div class="Tip-Amount">
+        <p>Tip Amount<br/><span>/ person</span></p>
+        <p class="Cal-Tip">
+          $0.00
+        </p>
+      </div>
+      <div class="Total">
+        <p>Total <br/><span>/ person</span></p>
+        <p class="Cal-Total">
+          $0.00
+        </p>
+      </div>
+      <input id="button" type="button" value="Reset">
+    </div>
+  </div>
+
+  <script>
+    const menu = document.querySelectorAll('.text');
+    const inputCustom = document.querySelector('.text-input');
+    const inputBill = document.getElementById('input-bill-fill');
+    const inputNumber = document.getElementById('input-number-fill');
+    const tip = document.querySelector('.Cal-Tip');
+    const total = document.querySelector('.Cal-Total');
+    const reset = document.getElementById('button');
+
+    let bill = inputBill.value;
+    let custom = inputCustom.value;
+    let number = inputNumber.value;
+
+    inputBill.addEventListener('input', inputData);
+    inputCustom.addEventListener('input', inputData);
+    inputNumber.addEventListener('input', inputData);
+
+    function Click() {
+      menu.forEach((item) =>
+        item.classList.remove('green'));
+      this.classList.add('green');
+      custom = this.id.split("%")[0];
+    }
+
+    function inputData(e) {
+      switch (e.target.name) {
+        case 'bill':
+          bill = e.target.value;
+          break;
+        case 'custom':
+          custom = e.target.value;
+          menu.forEach((item) =>
+            item.classList.remove('green'));
+          break;
+        case 'number':
+          number = e.target.value;
+          break;
+        default:
+          break;
+      }
+      if (bill !== '' && number !== '' && custom !== '') {
+        cal();
+      }
+    }
+
+    function cal() {
+      console.log(total + '333' + tip);
+      let Total = (bill*100)/(custom+100);
+      let TotalbyPer = (Total/number).toFixed(2);
+      let tipbyPer = ((Total/number)*100/custom).toFixed(2);
+      console.log(TotalbyPer);
+      total.innerHTML = `${TotalbyPer}`;
+      tip.innerHTML = `${tipbyPer}`;
+    }
+
+    function Reset() {
+      bill = '';
+      custom = '';
+      number = '';
+      inputCustom.value = '';
+      inputBill.value = '';
+      inputNumber.value = '';
+      total.innerHTML = `${0.00}`;
+      tip.innerHTML = `${0.00}`;
+      menu.forEach((item) =>
+        item.classList.remove('green'));
+    }
+
+    menu.forEach((item) =>
+      item.addEventListener('click', Click));
+    reset.addEventListener('click', Reset)
+  </script>
+</body>
+</html>

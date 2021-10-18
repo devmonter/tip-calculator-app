@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+:root {
+  --Strong--cyan: hsl(172, 67%, 45%);
+
+  --Very--dark--cyan: hsl(183, 100%, 15%);
+  --Dark--grayish--cyan--one: hsl(186, 14%, 43%);
+  --Dark--grayish--cyan--two: hsl(184, 14%, 56%);
+  --Light--grayish--cyan--one: hsl(185, 41%, 84%);
+  --Light--grayish--cyan--two: hsl(189, 41%, 97%);
+  --White: hsl(0, 0%, 100%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-family: 'Space Mono', monospace;
+}
+body {
+  background-color: var(--Light--grayish--cyan--one);
+  max-width: 1440px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cord {
+  width: 60%;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  gap: 50px;
+  background-color: var(--White);
+}
+.cord-right, .cord-left{
+  width: 50%;
+}
+.input-bill, .input-number, .input-button {
+  margin-top: 10px;
+}
+.cord-right {
+  padding: 40px;
+  background-color: var(--Very--dark--cyan);
+}
+.select, .number {
+  margin-top: 25px;
+}
+.input-bill, .input-number {
+  width: 96%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 20px;
+  border: 2px solid var(--Strong--cyan);
+  border-radius: 5px;
+  background-color: var(--Light--grayish--cyan--two);
+}
+.input-bill input, .input-number input {
+  border: none;
+  width: 95%;
+  outline: none;
+  text-align: right;
+  background-color: var(--Light--grayish--cyan--two);
+  cursor: pointer;
+}
+.input-button {
+  display: flex;
+  flex-wrap: wrap;
+}
+.input-button input:not(:nth-child(1), :nth-child(4)) {
+  margin-left: 10px;
+}
+.input-button input:not(:nth-child(1), :nth-child(2), :nth-child(3)) {
+  margin-top: 10px;
+}
+.input-button input {
+  padding: 10px;
+  width: 30%;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--Very--dark--cyan);
+  color: var(--White);
+  cursor: pointer;
+}
+.input-button input:hover {
+  background-color: var(--Strong--cyan);
+  color: var(--Very--dark--cyan);
+}
+.input-button input[type=text] {
+  text-align: end;
+  border: 2px solid var(--Strong--cyan);
+  background-color: var(--Light--grayish--cyan--two);
+  color: var(--Very--dark--cyan);
+}
+.cord-right input {
+  background-color: var(--Light--grayish--cyan--one);
+}
+.text.green {
+  background-color: var(--Strong--cyan);
+  color: var(--Very--dark--cyan);
+}
+.Tip-Amount, .Total {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.Tip-Amount p, .Total p {
+  color: var(--White);
+}
+.Tip-Amount p span, .Total p span {
+  color: var(--Dark--grayish--cyan--two);
+}
+.Tip-Amount p + p, .Total p + p {
+  display: flex;
+  align-items: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--Strong--cyan);
+}
+.text, .text-input {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.Total, .cord-right input[type=button] {
+  margin-top: 20px;
+}
+.cord-right input[type=button] {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  text-transform: uppercase;
+  background-color: var(--Strong--cyan);
+  color: var(--Very--dark--cyan);
+  font-weight: bold;
+}
+.Total {
+  margin-bottom: 100px;
+}
+@media only screen and (max-width: 960px) {
+  body {
+    margin: 20px auto;
+    max-width: 375px;
+    height: auto;
+  }
+  .cord {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cord-right, .cord-left{
+    width: 100%;
+  }
+  .input-button input:not(:nth-child(1), :nth-child(4)) {
+    margin-left: 0;
+  }
+  .input-button input:not(:nth-child(1), :nth-child(2), :nth-child(3)) {
+    margin-top: 0;
+  }
+  .input-button input {
+    padding: 10px;
+    width: 45%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: var(--Very--dark--cyan);
+    color: var(--White);
+    cursor: pointer;
+  }
+  .input-button input:not(:nth-child(1), :nth-child(3), :nth-child(5)) {
+    margin-left: 10px;
+  }
+  .input-button input:not(:nth-child(1), :nth-child(2)) {
+    margin-top: 10px;
+  }
+}
